@@ -1,18 +1,29 @@
+package selpractice;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class Assignment7 {
-    public static void main(String[] args) throws InterruptedException {
 
-        //System.setProperty("webdriver.chromedriver","");
-        WebDriver driver = new ChromeDriver();
+    WebDriver driver;
 
-        driver.navigate().to("https://rahulshettyacademy.com/AutomationPractice/");
+    @BeforeTest
+    void beforeClassMethod() {
+        this.driver = new ChromeDriver();
 
+        this.driver.navigate().to("https://rahulshettyacademy.com/AutomationPractice/");
+
+    }
+
+    @Test
+    public void Assignment() {
         List<WebElement> course = driver.findElements(By.xpath("//table[@name='courses']//tr"));
         System.out.println("Number of columns: " + course.size());
 
@@ -21,13 +32,13 @@ public class Assignment7 {
         System.out.println("Number of columns: " + rows.size());
 
         List<WebElement> second_rows = driver.findElements(By.xpath("//table[@name='courses']/tbody/tr/child::th"));
-        for(WebElement s_rows: second_rows){
+        for (WebElement s_rows : second_rows) {
             System.out.println(s_rows.getText());
         }
+    }
 
-        driver.quit();
-
-
-
+    @AfterTest
+    public void afterClassMethod() {
+        this.driver.quit();
     }
 }
