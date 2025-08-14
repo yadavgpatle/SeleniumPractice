@@ -16,9 +16,9 @@ public class Assignment7 {
 
     @BeforeTest
     void beforeClassMethod() {
-        this.driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
-        this.driver.navigate().to("https://rahulshettyacademy.com/AutomationPractice/");
+        driver.navigate().to("https://rahulshettyacademy.com/AutomationPractice/");
 
     }
 
@@ -39,6 +39,6 @@ public class Assignment7 {
 
     @AfterTest
     public void afterClassMethod() {
-        this.driver.quit();
+        driver.quit();
     }
 }
